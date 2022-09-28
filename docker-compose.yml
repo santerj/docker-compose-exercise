@@ -3,7 +3,10 @@ version: '3'
 services:
 
   service1:
-    build: service1/
+    build:
+      context: service1/
+      tags:
+        - "service1"
     restart: on-failure
     ports:
       - 8001:80
@@ -15,7 +18,10 @@ services:
       - service2
 
   service2:
-    build: service2/
+    build:
+      context: service2/
+      tags:
+        - "service2"
     restart: on-failure
     networks:
       - internal
