@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  service1:
+    build: service1/
+    restart: on-failure
+    ports:
+      - 8001:80
+    networks:
+      - internal
+    environment:
+      SERVICE2: service2
+    depends_on:
+      - service2
+
+  service2:
+    build: service2/
+    restart: on-failure
+    networks:
+      - internal
+    environment:
+      KEY: value
+
+networks:
+  internal:
+    name: internal
