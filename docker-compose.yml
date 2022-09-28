@@ -7,7 +7,6 @@ services:
       context: service1/
       tags:
         - "service1"
-    restart: on-failure
     ports:
       - 8001:80
     networks:
@@ -22,11 +21,8 @@ services:
       context: service2/
       tags:
         - "service2"
-    restart: on-failure
     networks:
       - internal
-    environment:
-      KEY: value
 
 networks:
   internal:
