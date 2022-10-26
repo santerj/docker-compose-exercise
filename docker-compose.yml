@@ -5,8 +5,6 @@ services:
   service1:
     build:
       context: service1/
-      tags:
-        - "service1"
     ports:
       - 8001:80
     networks:
@@ -19,8 +17,6 @@ services:
   service2:
     build:
       context: service2/
-      tags:
-        - "service2"
     networks:
       - internal
 
